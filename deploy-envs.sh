@@ -2,7 +2,7 @@
 export IMAGE_NAME=netcoreapps-andyagrant
 export IMAGE_VERSION=latest
 
-export AWS_DEFAULT_REGION=eu-west-1a
+export AWS_DEFAULT_REGION=eu-west-1
 export AWS_ECS_CLUSTER_NAME=default
 export AWS_VIRTUAL_HOST=test.andyagrant.com
 
