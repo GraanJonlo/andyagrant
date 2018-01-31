@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
@@ -61,7 +62,16 @@ namespace SpaUi
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+                               {
+                                   OnPrepareResponse = ctx =>
+                                                       {
+                                                           // Requires the following import:
+                                                           // using Microsoft.AspNetCore.Http;
+                                                           ctx.Context.Response.Headers.Append("Cache-Control",
+                                                               "public,max-age=600");
+                                                       }
+                               });
 
             app.UseMvc(routes =>
                        {
