@@ -17,6 +17,16 @@ module.exports = (env) => {
                     {
                         test: /\.css(\?|$)/,
                         use: extractCSS.extract([isDevBuild ? 'css-loader' : 'css-loader?minimize'])
+                    },
+                    {
+                        test: /\.(sass|scss)$/,
+                        use: [{
+                            loader: "style-loader" // creates style nodes from JS strings
+                        }, {
+                            loader: "css-loader" // translates CSS into CommonJS
+                        }, {
+                            loader: "sass-loader" // compiles Sass to CSS
+                        }]
                     }
                 ]
             },
