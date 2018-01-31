@@ -13,7 +13,7 @@ function renderApp() {
     const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href')!;
     ReactDOM.render(
         <AppContainer>
-            <BrowserRouter children={ routes } basename={ baseUrl } />
+            <BrowserRouter children={ routes } basename={ baseUrl }/>
         </AppContainer>,
         document.getElementById('react-app')
     );
@@ -23,8 +23,9 @@ renderApp();
 
 // Allow Hot Module Replacement
 if (module.hot) {
-    module.hot.accept('./routes', () => {
-        routes = require<typeof RoutesModule>('./routes').routes;
-        renderApp();
-    });
+    module.hot.accept('./routes',
+        () => {
+            routes = require<typeof RoutesModule>('./routes').routes;
+            renderApp();
+        });
 }
