@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,19 +20,41 @@ namespace SpaUi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.Configure<GzipCompressionProviderOptions>(
+                options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
+            services.AddResponseCompression(options =>
+                                            {
+                                                options.MimeTypes = new[]
+                                                                    {
+                                                                        // Default
+                                                                        "text/plain",
+                                                                        "text/css",
+                                                                        "application/javascript",
+                                                                        "text/html",
+                                                                        "application/xml",
+                                                                        "text/xml",
+                                                                        "application/json",
+                                                                        "text/json",
+                                                                        // Custom
+                                                                        "image/svg+xml"
+                                                                    };
+                                            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseResponseCompression();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true,
-                    ReactHotModuleReplacement = true
-                });
+                                            {
+                                                HotModuleReplacement = true,
+                                                ReactHotModuleReplacement = true
+                                            });
             }
             else
             {
@@ -45,15 +64,15 @@ namespace SpaUi
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                       {
+                           routes.MapRoute(
+                               name: "default",
+                               template: "{controller=Home}/{action=Index}/{id?}");
 
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
-            });
+                           routes.MapSpaFallbackRoute(
+                               name: "spa-fallback",
+                               defaults: new {controller = "Home", action = "Index"});
+                       });
         }
     }
 }
