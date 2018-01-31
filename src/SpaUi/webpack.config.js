@@ -25,7 +25,17 @@ module.exports = (env) => {
                             ? ['style-loader', 'css-loader']
                             : ExtractTextPlugin.extract({ use: 'css-loader?minimize' })
                     },
-                    { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
+                    { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
+                    {
+                        test: /\.(sass|scss)$/,
+                        use: [{
+                            loader: "style-loader" // creates style nodes from JS strings
+                        }, {
+                            loader: "css-loader" // translates CSS into CommonJS
+                        }, {
+                            loader: "sass-loader" // compiles Sass to CSS
+                        }]
+                    }
                 ]
             },
             plugins: [

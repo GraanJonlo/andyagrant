@@ -7,15 +7,19 @@ export interface LayoutProps {
 
 export class Layout extends React.Component<LayoutProps, {}> {
     public render() {
-        return <div className='container-fluid'>
-                   <div className='row'>
-                       <div className='col-sm-3'>
-                           <NavMenu/>
-                       </div>
-                       <div className='col-sm-9'>
-                           { this.props.children }
-                       </div>
-                   </div>
-               </div>;
+        return <div>
+            <section className='hero is-primary'>
+                <div className='container'>
+                    <header>
+                        <h1 className='title'>Title</h1>
+                        <h2 className='subtitle'>Subtitle</h2>
+                        <NavMenu />
+                    </header>
+                </div>
+            </section>
+            <section>
+                { this.props.children }
+            </section>
+        </div>;
     }
 }
