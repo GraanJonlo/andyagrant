@@ -4,25 +4,20 @@ import { Link, NavLink } from 'react-router-dom';
 export class NavMenu extends React.Component<{}, {}> {
     public render() {
         return <div>
-                    <Link to={'/'}>SpaUi</Link>
-                    <nav>
-                        <ul>
-                            <li>
-                                <NavLink to={ '/' } exact activeClassName='active'>
-                                       Home
-                                   </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={ '/counter' } exact activeClassName='active'>
-                                       Counter
-                                   </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={ '/fetchdata' } exact activeClassName='active'>
-                                       Fetch data
-                                   </NavLink>
-                            </li>
-                        </ul>
+                    <nav className='navbar'>
+                        <div className='nabar-menu'>
+                            <div className="navbar-start">
+                                <NavLink to={ '/' } exact className='navbar-item'>
+                                    Home
+                                </NavLink>
+                                <NavLink to={ '/counter' } exact className='navbar-item'>
+                                    Counter
+                                </NavLink>
+                                <NavLink to={ '/fetchdata' } exact className='navbar-item'>
+                                    Fetch data
+                                </NavLink>
+                            </div>
+                        </div>
                     </nav>
                 </div>;
     }
