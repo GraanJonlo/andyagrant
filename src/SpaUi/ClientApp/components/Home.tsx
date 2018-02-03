@@ -18,27 +18,6 @@ export class Home extends React.Component<RouteComponentProps<{}>, {}> {
                         </div>
                     </div>
                     <div className='column'>
-                        <div className='card'>
-                            <header className="card-header">
-                                <p className="card-header-title">
-                                Component
-                                </p>
-                                <a href="#" className="card-header-icon" aria-label="more options">
-                                <span className="icon">
-                                    <i className="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                                </a>
-                            </header>
-                            <div className="card-content">
-                                <div className="content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                                <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a></p>
-                                <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='column'>
                         <div className="card">
                             <div className="card-content">
                                 <p className="title">
