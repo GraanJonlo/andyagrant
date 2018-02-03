@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavMenu } from './NavMenu';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export interface LayoutProps {
     children?: React.ReactNode;
@@ -13,17 +13,15 @@ export class Layout extends React.Component<LayoutProps, {}> {
                 <div className='hero-body'>
                     <div className='container'>
                         <header>
-                            <h1 className='title'><Link to={'/'}>Title</Link></h1>
-                            <h2 className='subtitle'>Subtitle</h2>
+                            <h1 className='title'><Link to={'/'}>Andy Grant</Link></h1>
+                            <h2 className='subtitle'>Programming and gaming in Manchester UK</h2>
                             <NavMenu />
                         </header>
                     </div>
                 </div>
             </section>
             <section className='section'>
-                <div className='container'>
-                    { this.props.children }
-                </div>
+                { this.props.children }
             </section>
             <footer className="footer">
                 <div className="container">
