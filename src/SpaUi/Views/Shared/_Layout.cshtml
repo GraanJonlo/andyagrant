@@ -12,6 +12,20 @@
 @RenderBody()
 
 <script src="~/dist/vendor.js" asp-append-version="true"></script>
+<script>
+    window.onload = function () {
+        const placeHolders = document.getElementsByClassName('imgPlaceholder');
+
+        for (let i = 0; i < placeHolders.length; i++) {
+            const imgLarge = new Image();
+            imgLarge.src = placeHolders[i].dataset.large; 
+            imgLarge.onload = function () {
+                imgLarge.classList.add('loaded');
+            };
+            placeHolders[i].parentElement.appendChild(imgLarge);
+        }
+    }
+</script>
 @RenderSection("scripts", required: false)
 </body>
 </html>
