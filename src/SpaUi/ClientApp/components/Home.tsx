@@ -2,109 +2,77 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
+import { VideoCard } from './VideoCard';
+
 export class Home extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
         return <div className='container'>
                     <div className='columns'>
                         <div className='column is-half'>
-                            <div className='card'>
-                                <Link to={'/videopost/1234'}>
-                                    <div className="card-image">
-                                        <figure className="image is-16by9">
-                                        <img src="/images/xpman616.svg" className='imgPlaceholder' data-large='/images/xpman616.jpg' alt='Placeholder image' />
-                                        </figure>
-                                    </div>
-                                </Link>
-                                <div className='card-content'>
-                                    <h2 className='title is-4'>XPMan 61.6 - Bug Free Code</h2>
-                                    <p>Gemma Cameron at the Extreme Programming Manchester 2015 Lightning Talks.</p>
-                                    <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
+                            <VideoCard
+                                id='xpman62'
+                                title='XPMan 6 - In Defence of Mocks, with Mark Kirschstein'
+                                summary='<p>Are mocks pointless? This session argues maybe, maybe not…</p>'
+                                placeholder='/images/xpman62.svg'
+                                image='/images/xpman62.jpg'
+                                timestamp='2018-02-04' />
                         </div>
                         <div className='column'>
-                            <div className='card'>
-                                <Link to={'/videopost/1234'}>
-                                    <div className="card-image">
-                                        <figure className="image is-16by9">
-                                        <img src="/images/xpman615.svg" className='imgPlaceholder' data-large='/images/xpman615.jpg' alt='Placeholder image' />
-                                        </figure>
-                                    </div>
-                                </Link>
-                                <div className='card-content'>
-                                    <h2 className='title is-4'>XPMan 61.5 - Abstractions</h2>
-                                    <p>Matt Cannon at the Extreme Programming Manchester 2015 Lightning Talks.</p>
-                                    <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
+                            <VideoCard
+                                id='xpman616'
+                                title='XPMan 61.6 - Bug Free Code'
+                                summary='<p>Gemma Cameron at the Extreme Programming Manchester 2015 Lightning Talks.</p>'
+                                placeholder='/images/xpman616.svg'
+                                image='/images/xpman616.jpg'
+                                timestamp='2018-02-04' />
                         </div>
                         <div className='column'>
-                            <div className='card'>
-                                <Link to={'/videopost/1234'}>
-                                    <div className="card-image">
-                                        <figure className="image is-16by9">
-                                            <img src="/images/xpman614.svg" className='imgPlaceholder' data-large='/images/xpman614.jpg' alt='Placeholder image' />
-                                        </figure>
-                                    </div>
-                                </Link>
-                                <div className='card-content'>
-                                    <h2 className='title is-4'>XPMan 61.4 - Collaboration</h2>
-                                    <p>Clare Sudbery at the Extreme Programming Manchester 2015 Lightning Talks.</p>
-                                    <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
+                            <VideoCard
+                                id='xpman615'
+                                title='XPMan 61.5 - Abstractions'
+                                summary='<p>Matt Cannon at the Extreme Programming Manchester 2015 Lightning Talks.</p>'
+                                placeholder='/images/xpman615.svg'
+                                image='/images/xpman615.jpg'
+                                timestamp='2018-02-04' />
                         </div>
                     </div>
                     <div className='columns'>
                         <div className='column'>
-                            <div className='card'>
-                                <Link to={'/videopost/1234'}>
-                                    <div className="card-image">
-                                        <figure className="image is-16by9">
-                                            <img src="/images/xpman613.svg" className='imgPlaceholder' data-large='/images/xpman613.jpg' alt='Placeholder image' />
-                                        </figure>
-                                    </div>
-                                </Link>
-                                <div className='card-content'>
-                                    <h2 className='title is-4'>XPMan 61.3 - Hidden Queues</h2>
-                                    <p>James Jeffries at the Extreme Programming Manchester 2015 Lightning Talks.</p>
-                                    <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
+                            <VideoCard
+                                id='xpman614'
+                                title='XPMan 61.4 - Collaboration'
+                                summary='<p>Clare Sudbery at the Extreme Programming Manchester 2015 Lightning Talks.</p>'
+                                placeholder='/images/xpman614.svg'
+                                image='/images/xpman614.jpg'
+                                timestamp='2018-02-04' />
                         </div>
                         <div className='column'>
-                            <div className='card'>
-                                <Link to={'/videopost/1234'}>
-                                    <div className="card-image">
-                                        <figure className="image is-16by9">
-                                            <img src="/images/xpman612.svg" className='imgPlaceholder' data-large='/images/xpman612.jpg' alt='Placeholder image' />
-                                        </figure>
-                                    </div>
-                                </Link>
-                                <div className='card-content'>
-                                    <h2 className='title is-4'>XPMan 61.2 - Microservices</h2>
-                                    <p>Nima Montazeri at the Extreme Programming Manchester 2015 Lightning Talks.</p>
-                                    <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
+                            <VideoCard
+                                id='xpman613'
+                                title='XPMan 61.3 - Hidden Queues'
+                                summary='<p>James Jeffries at the Extreme Programming Manchester 2015 Lightning Talks.</p>'
+                                placeholder='/images/xpman613.svg'
+                                image='/images/xpman613.jpg'
+                                timestamp='2018-02-04' />
                         </div>
                         <div className='column'>
-                            <div className='card'>
-                                <Link to={'/videopost/1234'}>
-                                    <div className="card-image">
-                                        <figure className="image is-16by9">
-                                            <img src="/images/xpman611.svg" className='imgPlaceholder' data-large='/images/xpman611.jpg' alt='Placeholder image' />
-                                        </figure>
-                                    </div>
-                                </Link>
-                                <div className='card-content'>
-                                    <h2 className='title is-4'>XPMan 61.1 - We Said It Would Be Simple, Not Easy</h2>
-                                    <p>Andy Longshaw at the Extreme Programming Manchester 2015 Lightning Talks.</p>
-                                    <p><time dateTime="2018-02-02">2/2/2018</time></p>
-                                </div>
-                            </div>
+                            <VideoCard
+                                id='xpman612'
+                                title='XPMan 61.2 - Microservices'
+                                summary='<p>Nima Montazeri at the Extreme Programming Manchester 2015 Lightning Talks.</p>'
+                                placeholder='/images/xpman612.svg'
+                                image='/images/xpman612.jpg'
+                                timestamp='2018-02-04' />
                         </div>
-                        <div className='column'></div>
+                        <div className='column'>
+                            <VideoCard
+                                id='xpman611'
+                                title='XPMan 61.1 - We Said It Would Be Simple, Not Easy'
+                                summary='<p>Andy Longshaw at the Extreme Programming Manchester 2015 Lightning Talks.</p>'
+                                placeholder='/images/xpman611.svg'
+                                image='/images/xpman611.jpg'
+                                timestamp='2018-02-04' />
+                        </div>
                     </div>
                 </div>;
     }
