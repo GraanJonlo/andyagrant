@@ -12,19 +12,17 @@
 @RenderBody()
 
 <script src="~/dist/vendor.js" asp-append-version="true"></script>
-<script>
-    window.onload = function () {
-        const placeHolders = document.getElementsByClassName('imgPlaceholder');
-
-        for (let i = 0; i < placeHolders.length; i++) {
-            const imgLarge = new Image();
-            imgLarge.src = placeHolders[i].dataset.large; 
-            imgLarge.onload = function () {
-                imgLarge.classList.add('loaded');
-            };
-            placeHolders[i].parentElement.appendChild(imgLarge);
-        }
+<script type="text/javascript">
+    function downloadJSAtOnload() {
+        const element = document.createElement("script");
+        element.src = "/scripts/defer.js";
+        document.body.appendChild(element);
     }
+    if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
 </script>
 @RenderSection("scripts", required: false)
 </body>
