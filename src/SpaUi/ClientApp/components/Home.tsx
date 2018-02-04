@@ -11,7 +11,7 @@ export class Home extends React.Component<RouteComponentProps<{}>, {}> {
                         <div className='column is-half'>
                             <VideoCard
                                 id='xpman62'
-                                title='XPMan 6 - In Defence of Mocks, with Mark Kirschstein'
+                                title='XPMan 62 - In Defence of Mocks, with Mark Kirschstein'
                                 summary='<p>Are mocks pointless? This session argues maybe, maybe not…</p>'
                                 placeholder='/images/xpman62.svg'
                                 image='/images/xpman62.jpg'
