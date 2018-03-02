@@ -6,4 +6,6 @@ dist/
 .vs/
 .vscode/
 
+_gsdata_/
+
 *.user
