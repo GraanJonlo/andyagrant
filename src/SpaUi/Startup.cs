@@ -66,10 +66,8 @@ namespace SpaUi
                                {
                                    OnPrepareResponse = ctx =>
                                                        {
-                                                           // Requires the following import:
-                                                           // using Microsoft.AspNetCore.Http;
                                                            ctx.Context.Response.Headers.Append("Cache-Control",
-                                                               "public,max-age=600");
+                                                               "public,max-age=691200");
                                                        }
                                });
 
