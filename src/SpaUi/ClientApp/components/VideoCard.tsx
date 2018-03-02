@@ -5,18 +5,26 @@ interface VideoCardProps {
     id: string,
     title: string,
     summary: string,
-    placeholder: string,
     image: string,
     timestamp: string
 }
 
-export class VideoCard extends React.Component<VideoCardProps, {}> {
+interface VideoCardState {
+    image: string,
+    img: HTMLImageElement
+}
+
+export class VideoCard extends React.Component<VideoCardProps, VideoCardState> {
+    constructor(props: VideoCardProps) {
+        super(props);
+    }
+
     public render() {
         return <div className='card'>
                     <Link to={'/videopost/' + this.props.id}>
                         <div className="card-image">
                             <figure className="image is-16by9">
-                            <img src={this.props.placeholder} className='imgPlaceholder' data-large={this.props.image} alt={this.props.title} />
+                                <img src={this.props.image} className='imgPlaceholder' alt={this.props.title} />
                             </figure>
                         </div>
                     </Link>
