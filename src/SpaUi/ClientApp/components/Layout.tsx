@@ -27,7 +27,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
                 <div className="container">
                     <div className="content has-text-centered">
                     <p>
-                        It's a footer!
+                        It's a footer! 2018-03-02T16:13
                     </p>
                     </div>
                 </div>
