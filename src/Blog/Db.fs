@@ -59,19 +59,19 @@ module Db =
             //         placeholder="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.3.svg"
             //         recorded=LocalDate(2015,7,9)
             //     })
-            // VideoPost (
-            //     {
-            //         postId="xpman061.2"
-            //         title="XPMan 61.2 - Microservices"
-            //         summary="<p>Nima Montazeri at the Extreme Programming Manchester 2015 Lightning Talks.</p>"
-            //         timestamp=LocalDate(2015,7,9)
-            //     },
-            //     {
-            //         url="https://youtu.be/1gigc-7Fv_I"
-            //         image="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.2.jpg"
-            //         placeholder="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.2.svg"
-            //         recorded=LocalDate(2015,7,9)
-            //     })
+            VideoPost (
+                {
+                    postId="xpman061.2"
+                    title="XPMan 61.2 - Microservices"
+                    summary="<p>Nima Montazeri at the Extreme Programming Manchester 2015 Lightning Talks.</p>"
+                    timestamp=LocalDate(2015,7,9)
+                },
+                {
+                    url="https://youtu.be/1gigc-7Fv_I"
+                    image="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.2.jpg"
+                    placeholder="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.2.svg"
+                    recorded=LocalDate(2015,7,9)
+                })
             VideoPost (
                 {
                     postId="xpman061.1"

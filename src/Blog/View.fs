@@ -114,6 +114,6 @@ module View =
 
         [
             div ["class","container"] [
-                latestRow <| List.take 3 allPosts
+                latestRow <| List.truncate 3 allPosts
             ]
         ]
