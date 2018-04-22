@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Infrastructure -->
+    <Compile Include="Common.fs" />
+    
     <!-- Domain -->
     <Compile Include="DomainTypes.fs" />
     

@@ -94,17 +94,8 @@ module View =
     let column x = div ["class","column"] [x]
 
     let columnOfLength len x =
-        let rec pad' len x =
-            if List.length x >= len then
-                x
-            else
-                List.rev x
-                |> fun y -> div ["class","column"] [] :: y
-                |> List.rev
-                |> pad' len
-        
         List.map column x
-        |> pad' len
+        |> Common.rightPad len (div ["class","column"] [])
 
     let latestRow row =
         let latestCol' x = div ["class", "column is-half"] [x]
