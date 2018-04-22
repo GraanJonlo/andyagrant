@@ -2,8 +2,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaUi", "SpaUi\SpaUi.csproj", "{E0B49E21-3B5B-407A-B323-02DC5C8A7BEA}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Blog", "Blog\Blog.fsproj", "{D84147BC-72EE-432C-B4FE-936FA2176B2B}"
 EndProject
 Global

@@ -8,7 +8,7 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM microsoft/aspnetcore:2.0
 WORKDIR /app
-COPY --from=build-env /app/SpaUi/out .
+COPY --from=build-env /app/Blog/out .
 EXPOSE 5000/tcp
 ENV ASPNETCORE_URLS http://*:5000
-ENTRYPOINT ["dotnet", "SpaUi.dll"]
+ENTRYPOINT ["dotnet", "Blog.dll"]
