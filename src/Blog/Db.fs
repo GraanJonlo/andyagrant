@@ -24,7 +24,7 @@ module Db =
                 {
                     postId="xpman062"
                     title="XPMan 62 - In Defence of Mocks, with Mark Kirschstein"
-                    summary="<p>Are mocks pointless? This session argues maybe, maybe not…</p>"
+                    summary="<p>Are mocks pointless? This session argues maybe, maybe not...</p>"
                     timestamp=LocalDate(2015,8,13)
                 },
                 {
