@@ -87,7 +87,7 @@ module View =
                     Text post.title
                 ]
                 div ["class","content"] [
-                    Text post.summary
+                    Raw post.summary
                 ]
                 p [] [
                     time ["dateTime", post.timestamp.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)] [
