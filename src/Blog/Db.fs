@@ -46,19 +46,19 @@ module Db =
             //         placeholder="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.4.svg"
             //         recorded=LocalDate(2015,7,9)
             //     })
-            // VideoPost (
-            //     {
-            //         postId="xpman061.3"
-            //         title="XPMan 61.3 - Hidden Queues"
-            //         summary="<p>James Jeffries at the Extreme Programming Manchester 2015 Lightning Talks.</p>"
-            //         timestamp=LocalDate(2015,7,9)
-            //     },
-            //     {
-            //         url="https://youtu.be/mH0q_cBd144"
-            //         image="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.3.jpg"
-            //         placeholder="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.3.svg"
-            //         recorded=LocalDate(2015,7,9)
-            //     })
+            VideoPost (
+                {
+                    postId="xpman061.3"
+                    title="XPMan 61.3 - Hidden Queues"
+                    summary="<p>James Jeffries at the Extreme Programming Manchester 2015 Lightning Talks.</p>"
+                    timestamp=LocalDate(2015,7,9)
+                },
+                {
+                    url="https://youtu.be/mH0q_cBd144"
+                    image="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.3.jpg"
+                    placeholder="https://d20sprsywyfv7z.cloudfront.net/images/xpman061.3.svg"
+                    recorded=LocalDate(2015,7,9)
+                })
             VideoPost (
                 {
                     postId="xpman061.2"

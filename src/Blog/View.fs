@@ -1,7 +1,5 @@
 namespace Blog
 
-
-open Microsoft.Data.Edm
 module View =
     open Suave.Html
     open System.Globalization
@@ -95,12 +93,25 @@ module View =
     
     let column x = div ["class","column"] [x]
 
+    let columnOfLength len x =
+        let rec pad' len x =
+            if List.length x >= len then
+                x
+            else
+                List.rev x
+                |> fun y -> div ["class","column"] [] :: y
+                |> List.rev
+                |> pad' len
+        
+        List.map column x
+        |> pad' len
+
     let latestRow row =
         let latestCol' x = div ["class", "column is-half"] [x]
 
         div ["class", "columns"]
             (match row with
-            | head::tail -> (latestCol' head) :: List.map column tail
+            | head::tail -> (latestCol' head) :: columnOfLength 2 tail
             | [] -> [])
 
 
