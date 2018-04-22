@@ -110,31 +110,27 @@ module View =
         |> div ["class", "columns"]
     
     let makeRows cards =
-        let rec makeRows' working remaining =
-            match remaining with
-            | [] -> working
-            | x ->
+        let rec makeRows' state list =
+            match list with
+            | [] -> List.rev state
+            | items ->
                 let row =
-                    List.truncate 4 x
+                    List.truncate 4 items
                     |> makeRow
-                let newWorking =
-                    List.rev working
-                    |> (fun x -> row::x)
-                    |> List.rev
-                if List.length x > 4 then
-                    makeRows' newWorking (List.skip 4 remaining)
+                if List.length items > 4 then
+                    makeRows' (row::state) (List.skip 4 list)
                 else
-                    newWorking
+                    makeRows' (row::state) []
         
-        let working =
+        let topRow =
             cards
             |> List.truncate 3
             |> latestRow
         
         if List.length cards > 3 then
-            makeRows' [working] (List.skip 3 cards)
+            makeRows' [topRow] (List.skip 3 cards)
         else
-            [working]
+            [topRow]
 
     let post id = [Text (sprintf "Post %s" id)]
     let posts =
