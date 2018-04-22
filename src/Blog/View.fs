@@ -1,17 +1,21 @@
 namespace Blog
 
+
+open Microsoft.Data.Edm
 module View =
     open Suave.Html
+    open System.Globalization
 
-    let post id = [Text (sprintf "Post %s" id)]
-    let posts = [Text "Posts"]
+    open DomainTypes
 
     let h1 = tag "h1"
     let h2 = tag "h2"
+    let figure = tag "figure"
     let footer = tag "footer"
     let header = tag "header"
     let nav = tag "nav"
     let section = tag "section"
+    let time = tag "time"
 
     let cssLink href = link [ "href", href; " rel", "stylesheet"; " type", "text/css" ]
 
@@ -50,7 +54,7 @@ module View =
                             ]
                         ]
                     ]
-                    
+
                     section ["class", "section"] container
 
                     footer ["class", "footer"] [
@@ -64,3 +68,52 @@ module View =
             ]
         ]
         |> htmlToString
+    
+    let videoCard (VideoPost (post, v)) =
+        div ["class", "card"] [
+            a (sprintf Path.Posts.post post.postId) [] [
+                div ["class", "card-image"] [
+                    figure ["class", "image is-16by9"] [
+                        img ["src",v.placeholder;"class","imgPlaceholder";"alt",post.title]
+                    ]
+                ]
+            ]
+            div ["class","card-content"] [
+                h2 ["class","title is-4"] [
+                    Text post.title
+                ]
+                div ["class","content"] [
+                    Text post.summary
+                ]
+                p [] [
+                    time ["dateTime", post.timestamp.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)] [
+                        Text <| post.timestamp.ToString()
+                    ]
+                ]
+            ]
+        ]
+    
+    let column x = div ["class","column"] [x]
+
+    let latestRow row =
+        let latestCol' x = div ["class", "column is-half"] [x]
+
+        div ["class", "columns"]
+            (match row with
+            | head::tail -> (latestCol' head) :: List.map column tail
+            | [] -> [])
+
+
+    let post id = [Text (sprintf "Post %s" id)]
+    let posts =
+        let allPosts =
+            Db.allPosts ()
+            |> List.map (fun x ->
+                match x with
+                | VideoPost _ -> videoCard x)
+
+        [
+            div ["class","container"] [
+                latestRow <| List.take 3 allPosts
+            ]
+        ]
