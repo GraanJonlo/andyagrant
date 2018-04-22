@@ -113,7 +113,37 @@ module View =
             (match row with
             | head::tail -> (latestCol' head) :: columnOfLength 2 tail
             | [] -> [])
-
+    
+    let makeRow row =
+        columnOfLength 4 row
+        |> div ["class", "columns"]
+    
+    let makeRows cards =
+        let rec makeRows' working remaining =
+            match remaining with
+            | [] -> working
+            | x ->
+                let row =
+                    List.truncate 4 x
+                    |> makeRow
+                let newWorking =
+                    List.rev working
+                    |> (fun x -> row::x)
+                    |> List.rev
+                if List.length x > 4 then
+                    makeRows' newWorking (List.skip 4 remaining)
+                else
+                    newWorking
+        
+        let working =
+            cards
+            |> List.truncate 3
+            |> latestRow
+        
+        if List.length cards > 3 then
+            makeRows' [working] (List.skip 3 cards)
+        else
+            [working]
 
     let post id = [Text (sprintf "Post %s" id)]
     let posts =
@@ -124,7 +154,6 @@ module View =
                 | VideoPost _ -> videoCard x)
 
         [
-            div ["class","container"] [
-                latestRow <| List.truncate 3 allPosts
-            ]
+            div ["class","container"]
+                (makeRows allPosts)
         ]
