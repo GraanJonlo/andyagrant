@@ -64,6 +64,7 @@ module View =
                     ]
                 ]
             ]
+            script [ "type", "text/javascript"; "src", "/scripts/lazy.js" ] []
         ]
         |> htmlToString
     
@@ -72,7 +73,12 @@ module View =
             a (sprintf Path.Posts.post post.postId) [] [
                 div ["class", "card-image"] [
                     figure ["class", "image is-16by9"] [
-                        img ["src",v.placeholder;"class","imgPlaceholder";"alt",post.title]
+                        img [
+                            "src",v.placeholder
+                            "data-large",v.image
+                            "class","imgPlaceholder"
+                            "alt",post.title
+                        ]
                     ]
                 ]
             ]
@@ -113,11 +119,11 @@ module View =
         let rec makeRows' state list =
             match list with
             | [] -> List.rev state
-            | items ->
+            | _ ->
                 let row =
-                    List.truncate 4 items
+                    List.truncate 4 list
                     |> makeRow
-                if List.length items > 4 then
+                if List.length list > 4 then
                     makeRows' (row::state) (List.skip 4 list)
                 else
                     makeRows' (row::state) []

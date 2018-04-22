@@ -13,6 +13,6 @@ module App =
             path Path.home >=> html View.posts
             path Path.Posts.all >=> html View.posts
             pathScan Path.Posts.post (View.post >> html)
-            pathRegex "(.*)\.(css|png)" >=> Files.browseHome
+            pathRegex "(.*)\.(css|jpg|js|png|svg)" >=> Files.browseHome
         ]
         
