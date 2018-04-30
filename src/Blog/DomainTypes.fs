@@ -3,21 +3,13 @@ namespace Blog
 module DomainTypes =
     open NodaTime
 
-    type Video =
+    type PostSummary =
         {
-            url:string
-            image:string
-            placeholder:string
-            recorded:LocalDate
+            postId: string
+            title: string
+            image: string
+            placeholder: string
+            summary: string
+            timestamp: LocalDate
         }
-    
-    type Post =
-        {
-            postId:string
-            title:string
-            summary:string
-            timestamp:LocalDate
-        }
-    
-    type BlogPost =
-    | VideoPost of Post * Video
+

@@ -68,14 +68,14 @@ module View =
         ]
         |> htmlToString
     
-    let videoCard (VideoPost (post, v)) =
+    let videoCard post =
         div ["class", "card"] [
             a (sprintf Path.Posts.post post.postId) [] [
                 div ["class", "card-image"] [
                     figure ["class", "image is-16by9"] [
                         img [
-                            "src",v.placeholder
-                            "data-large",v.image
+                            "src",post.placeholder
+                            "data-large",post.image
                             "class","imgPlaceholder"
                             "alt",post.title
                         ]
@@ -140,13 +140,11 @@ module View =
 
     let post id = [Text (sprintf "Post %s" id)]
     let posts =
-        let allPosts =
-            Db.allPosts ()
-            |> List.map (fun x ->
-                match x with
-                | VideoPost _ -> videoCard x)
+        let postSummaries =
+            Db.postSummaries ()
+            |> List.map videoCard
 
         [
             div ["class","container"]
-                (makeRows allPosts)
+                (makeRows postSummaries)
         ]
