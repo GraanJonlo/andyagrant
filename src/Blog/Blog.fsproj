@@ -1,34 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <!-- Infrastructure -->
     <Compile Include="Common.fs" />
-    
     <!-- Domain -->
     <Compile Include="DomainTypes.fs" />
-    
     <!-- Persistence -->
     <Compile Include="Db.fs" />
-
     <!-- Presentation -->
     <Compile Include="Path.fs" />
     <Compile Include="View.fs" />
     <Compile Include="App.fs" />
-
     <Compile Include="Main.fs" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
     <PackageReference Include="nodatime" Version="2.2.5" />
-    <PackageReference Include="Suave" Version="2.2.1" />
+    <PackageReference Include="Suave" Version="2.4.0" />
     <PackageReference Include="Suave.AspNetCore" Version="0.4.1" />
-    <PackageReference Include="Suave.Experimental" Version="2.2.1" />
+    <PackageReference Include="Suave.Experimental" Version="2.4.0" />
   </ItemGroup>
-
-
 </Project>
