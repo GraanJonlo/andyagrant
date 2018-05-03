@@ -1,12 +1,11 @@
-FROM microsoft/aspnetcore-build:2.0 AS build-env
+FROM microsoft/aspnetcore-build:2.0.7-2.1.105 AS build-env
 COPY src /app
 WORKDIR /app
 
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
-# Build runtime image
-FROM microsoft/aspnetcore:2.0
+FROM microsoft/aspnetcore:2.0.7
 WORKDIR /app
 COPY --from=build-env /app/Blog/out .
 EXPOSE 5000/tcp

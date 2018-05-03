@@ -33,6 +33,7 @@ module View =
             head [] [
                 title [] "Home"
                 cssLink "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"
+                cssLink "https://fonts.googleapis.com/css?family=Montserrat:600|Roboto"
             ]
 
             body [] [
