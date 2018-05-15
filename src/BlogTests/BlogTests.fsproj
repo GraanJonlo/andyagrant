@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Expecto" Version="8.*" />
+    <PackageReference Include="Expecto" Version="8.0.0" />
+    <PackageReference Include="Expecto.BenchmarkDotNet" Version="8.0.0" />
+    <PackageReference Include="Expecto.FsCheck" Version="8.0.0" />
     <PackageReference Include="FSharp.Core" Version="4.*" />
     <PackageReference Include="Suave" Version="2.4.0" />
     <PackageReference Include="YoloDev.Expecto.TestSdk" Version="0.*" />
