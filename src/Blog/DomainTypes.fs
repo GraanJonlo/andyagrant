@@ -5,11 +5,11 @@ module DomainTypes =
 
     type PostSummary =
         {
-            postId: string
-            title: string
-            image: string
-            placeholder: string
-            summary: string
-            timestamp: LocalDate
+            PostId: string
+            Title: string
+            Image: string
+            Placeholder: string
+            Summary: string
+            Timestamp: LocalDate
         }
 

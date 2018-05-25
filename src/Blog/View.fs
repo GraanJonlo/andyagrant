@@ -76,28 +76,28 @@ module View =
     
     let videoCard post =
         div ["class", "card"] [
-            a (sprintf Path.Posts.post post.postId) [] [
+            a (sprintf Path.Posts.post post.PostId) [] [
                 div ["class", "card-image"] [
                     figure ["class", "image is-16by9"] [
                         img [
-                            "src",post.placeholder
-                            "data-large",post.image
+                            "src",post.Placeholder
+                            "data-large",post.Image
                             "class","imgPlaceholder"
-                            "alt",post.title
+                            "alt",post.Title
                         ]
                     ]
                 ]
             ]
             div ["class","card-content"] [
                 h2 ["class","title is-4"] [
-                    Text post.title
+                    Text post.Title
                 ]
                 div ["class","content"] [
-                    Raw post.summary
+                    Raw post.Summary
                 ]
                 p [] [
-                    time ["dateTime", post.timestamp.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)] [
-                        Text <| post.timestamp.ToString()
+                    time ["dateTime", post.Timestamp.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)] [
+                        Text <| post.Timestamp.ToString()
                     ]
                 ]
             ]
@@ -130,9 +130,9 @@ module View =
                     List.truncate 4 list
                     |> makeRow
                 if List.length list > 4 then
-                    makeRows' (row::state) (List.skip 4 list)
+                    makeRows' (row :: state) (List.skip 4 list)
                 else
-                    makeRows' (row::state) []
+                    makeRows' (row :: state) []
         
         let topRow =
             cards
