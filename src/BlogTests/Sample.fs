@@ -6,22 +6,16 @@ open Suave
 let withUri u hc =
     let uri = new System.Uri("http://some.random.tld" + u)
     let rawQuery = uri.Query.TrimStart('?')
-    let req =
-        {
-            hc.request with
-                url = uri
-                rawQuery = rawQuery
-        }
-    {
-        hc with
-            request = req
+    let req = {
+        hc.request with
+            url = uri
+            rawQuery = rawQuery
     }
+    { hc with request = req }
 
 let asGetRequest hc =
     let req = { hc.request with ``method`` = HttpMethod.GET }
-    {
-        hc with request = req
-    }
+    { hc with request = req }
 
 let getRequest u =
     HttpContext.empty

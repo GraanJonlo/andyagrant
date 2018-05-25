@@ -15,7 +15,11 @@ module View =
     let section = tag "section"
     let time = tag "time"
 
-    let cssLink href = link [ "href", href; " rel", "stylesheet"; " type", "text/css" ]
+    let cssLink href =
+        link [
+            "href", href
+            "rel", "stylesheet"
+            "type", "text/css" ]
 
     let navMenu =
         div [] [
@@ -110,7 +114,7 @@ module View =
 
         div ["class", "columns"]
             (match row with
-            | head::tail -> (latestCol' head) :: columnOfLength 2 tail
+            | head :: tail -> (latestCol' head) :: columnOfLength 2 tail
             | [] -> [])
     
     let makeRow row =

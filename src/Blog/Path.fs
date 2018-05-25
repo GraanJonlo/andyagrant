@@ -1,7 +1,7 @@
 namespace Blog
 
 module Path =
-    type StringPath = PrintfFormat<(string -> string),unit,string,string,string>
+    type StringPath = PrintfFormat<(string -> string), unit, string, string, string>
 
     let home = "/"
 
