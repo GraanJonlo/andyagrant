@@ -14,10 +14,9 @@
     <PackageReference Include="Expecto" Version="8.0.0" />
     <PackageReference Include="Expecto.BenchmarkDotNet" Version="8.0.0" />
     <PackageReference Include="Expecto.FsCheck" Version="8.0.0" />
-    <PackageReference Include="FSharp.Core" Version="4.*" />
     <PackageReference Include="Suave" Version="2.4.0" />
-    <PackageReference Include="YoloDev.Expecto.TestSdk" Version="0.*" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.*" />
+    <PackageReference Include="YoloDev.Expecto.TestSdk" Version="0.5.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
   </ItemGroup>
 
   <ItemGroup>
