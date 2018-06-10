@@ -1,7 +1,6 @@
 FROM microsoft/aspnetcore-build:2.0.8-2.1.200 AS build-env
 COPY src /app
 WORKDIR /app
-
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
