@@ -5,7 +5,16 @@ module Db =
 
     open DomainTypes
 
-    let postSummaries () = 
+    let post id =
+        Some
+          { PostId = "xpman063"
+            Title = "XPMan 63 - Microservices Debate"
+            Image = "https://d20sprsywyfv7z.cloudfront.net/images/xpman063.0.jpg"
+            Placeholder = "https://d20sprsywyfv7z.cloudfront.net/images/xpman063.0.svg"
+            Content = "<p>Microservices seem to be a hot topic at the moment driven by companies such as Netflix and Spotify but are they always the right solution?</p>"
+            Timestamp = LocalDate(2015,9,10) }
+
+    let postSummaries () =
         [ { PostId = "xpman063"
             Title = "XPMan 63 - Microservices Debate"
             Image = "https://d20sprsywyfv7z.cloudfront.net/images/xpman063.0.jpg"

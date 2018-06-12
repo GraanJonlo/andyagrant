@@ -1,5 +1,6 @@
 namespace Blog
 
+open Path
 module View =
     open Suave.Html
     open System.Globalization
@@ -144,7 +145,21 @@ module View =
         else
             [topRow]
 
-    let post id = [Text (sprintf "Post %s" id)]
+    let post id =
+        match Db.post id with
+        | Some post ->
+            [
+                div ["class","container"] [
+                    Text (sprintf "Post %s" post.PostId)
+                ]
+            ]
+        | None ->
+            [
+                div ["class","container"] [
+                    Text (sprintf "Post not found")
+                ]
+            ]
+
     let posts =
         let postSummaries =
             Db.postSummaries ()
