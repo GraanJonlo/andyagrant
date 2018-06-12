@@ -1,6 +1,5 @@
 namespace Blog
 
-open Path
 module View =
     open Suave.Html
     open System.Globalization
@@ -144,25 +143,17 @@ module View =
             makeRows' [topRow] (List.skip 3 cards)
         else
             [topRow]
-
-    let post id =
-        match Db.post id with
-        | Some post ->
-            [
-                div ["class","container"] [
-                    Text (sprintf "Post %s" post.PostId)
-                ]
+    
+    let post (post:Post) =
+        [
+            div ["class","container"] [
+                h1 ["class","title"] [Text post.Title]
             ]
-        | None ->
-            [
-                div ["class","container"] [
-                    Text (sprintf "Post not found")
-                ]
-            ]
+        ]
 
-    let posts =
+    let posts allPosts =
         let postSummaries =
-            Db.postSummaries ()
+            allPosts
             |> List.map videoCard
 
         [
