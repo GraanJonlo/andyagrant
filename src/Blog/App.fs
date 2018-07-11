@@ -1,5 +1,6 @@
 namespace Blog
 
+open DomainTypes
 module App =
     open Suave
     open Suave.Filters
@@ -13,8 +14,13 @@ module App =
 
     let getPost id =
         match Db.post id with
-        | Some p -> View.post p |> html
         | None -> NOT_FOUND "Nope"
+        | Some p ->
+            match p with
+            | VideoPost v -> 
+                match v with
+                | YoutubePost y ->
+                    View.youtubePost y |> html
 
     let webPart =
         choose [

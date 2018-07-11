@@ -11,6 +11,7 @@ module View =
     let figure = tag "figure"
     let footer = tag "footer"
     let header = tag "header"
+    let iframe = tag "iframe"
     let nav = tag "nav"
     let section = tag "section"
     let time = tag "time"
@@ -144,10 +145,20 @@ module View =
         else
             [topRow]
     
-    let post (post:Post) =
+    let youtubePost (post:YoutubePost) =
         [
             div ["class","container"] [
                 h1 ["class","title"] [Text post.Title]
+                iframe [
+                    "width", "560"
+                    "height", "315"
+                    "src", "https://www.youtube.com/embed/" + post.YoutubeId
+                    "frameborder", "0"
+                    "allow", "autoplay; encrypted-media"
+                    "allowfullscreen", "true"] []
+                div [] [
+                    Raw post.Description
+                ]
             ]
         ]
 
